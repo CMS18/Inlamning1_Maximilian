@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using AlmApp.Web.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AlmApp.Web.Models;
@@ -20,7 +21,9 @@ namespace AlmApp.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var customers = BankRepository.GetCustomers();
+            
+            return View(customers);
         }
 
         public IActionResult Privacy()
