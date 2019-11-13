@@ -91,8 +91,6 @@ namespace AlmApp.Web
             };
 
             return customers;
-
-
         }
     }
 }

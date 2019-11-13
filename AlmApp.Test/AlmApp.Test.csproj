@@ -13,4 +13,8 @@
     <PackageReference Include="coverlet.collector" Version="1.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AlmApp.Web\AlmApp.Web.csproj" />
+  </ItemGroup>
+
 </Project>
