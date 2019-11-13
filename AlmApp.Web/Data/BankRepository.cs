@@ -39,7 +39,7 @@ namespace AlmApp.Web.Data
                 else
                 {
                     customer.Account.Balance = customer.Account.Balance - amount;
-                    msg = "Successfully withdrew " +amount+ " from " +accountNumber;
+                    msg = "Successfully withdrew " +amount+ " from account " +accountNumber +". Current balance is " +customer.Account.Balance;
                 }
             }
 
@@ -61,7 +61,7 @@ namespace AlmApp.Web.Data
                 else
                 {
                     customer.Account.Balance += amount;
-                    msg = "Successfully deposit " + amount + " to " + accountNumber;
+                    msg = "Successfully deposit " + amount + " to account " + accountNumber + ". Current balance is " + customer.Account.Balance;
                 }
             }
 
