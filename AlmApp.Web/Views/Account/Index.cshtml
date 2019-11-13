@@ -1,0 +1,40 @@
+﻿@model AlmApp.Web.Models.ViewModels.AccountViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+
+    string msg = (string) TempData["msg"];
+}
+
+<form asp-action="Index" asp-controller="Account" method="post">
+    <div class="card" style="margin-top: 100px;">
+        <div class="card-body">
+            <h5 class="card-title">Deposit/Withdrawal</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Enter account number and amount to deposit/withdraw</h6>
+
+                <p class="card-text" style="color: red;">@TempData["msg"]</p>
+            
+
+            <div class="input-group input-group-lg pt-3 pb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Amount</span>
+                </div>
+                <input type="text" asp-for="Amount" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-lg">Account no</span>
+                </div>
+                <input type="text" asp-for="AccountNumber" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="pt-3">
+                <button type="submit" name="command" value="deposit" class="btn btn-outline-dark">Deposit</button>
+                <button type="submit" name="command" value="withdraw" class="btn btn-outline-dark">Withdraw</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div asp-validation-summary="All">
+</div>
