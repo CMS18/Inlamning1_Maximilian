@@ -29,9 +29,9 @@ namespace AlmApp.Test.Transactions
             // Arrange
             BankContext.Create();
             var customers = BankContext.GetCustomers();
-            var account = customers.FirstOrDefault(m => m.Id == 1)?.Account;
+            var account = customers.FirstOrDefault(m => m.Id == 2)?.Account;
             var balanaceBeforeAttemptWithdrawal = account.Balance;
-            decimal withdrawalAmount = 700;
+            decimal withdrawalAmount = 1700;
             var result = account.Balance - withdrawalAmount;
 
             // Act
