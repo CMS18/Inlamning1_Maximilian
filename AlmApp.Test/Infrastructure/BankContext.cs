@@ -26,7 +26,14 @@ namespace AlmApp.Test.Infrastructure
                 Account = new Account(3, 2500)
             };
 
-            var customers = new List<Customer> {gabriel, amanda, max};
+            var ronnehag = new Customer
+            {
+                Id = 4,
+                Name = "Ronnehag",
+                Account = new Account(4, 2500)
+            };
+
+            var customers = new List<Customer> {gabriel, amanda, max, ronnehag};
 
             BankRepository.AddCustomers(customers);
         }

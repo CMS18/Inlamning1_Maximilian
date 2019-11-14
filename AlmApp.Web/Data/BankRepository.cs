@@ -68,5 +68,29 @@ namespace AlmApp.Web.Data
             return msg;
         }
 
+        public static string Transfer(int accountNumberFrom, int accountNumberTo, decimal amount)
+        {
+            var customerFrom = Customers.FirstOrDefault(a => a.Account.Id == accountNumberFrom);
+            var customerTo = Customers.FirstOrDefault(a => a.Account.Id == accountNumberTo);
+            if(customerFrom != null)
+            {
+                if(customerTo != null)
+                {
+                    if(amount <= 0)
+                    {
+                        return "Amount must be a number greater than 0.";
+                    }
+                    if(customerFrom.Account.Balance >= amount)
+                    {
+                        customerFrom.Account.Balance -= amount;
+                        customerTo.Account.Balance += amount;
+                        return "Successfully transferred " + amount + " from account: " + accountNumberFrom + " to account: " + accountNumberTo + ". Current balance: account " + customerFrom.Account.Id + ": " + customerFrom.Account.Balance + ", account " + customerTo.Account.Id + ": " + customerTo.Account.Balance + ".";
+                    }
+                    return "Insufficient funds on sender account.";
+                }
+                return "Receiver account not found.";
+            }
+            return "Sender account not found.";
+        }
     }
 }
